@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const DraggableBox = () => {
+  const [modal, setModal] = useState(true);
   return (
     <Draggable>
-      <Button>OpenButton</Button>
-      <Box>
-        <DragContent></DragContent>
-        <Button>CloseButton</Button>
-      </Box>
+      <Button onClick={() => setModal(true)}>OpenButton</Button>
+      {modal === true ? (
+        <Box>
+          <DragContent></DragContent>
+          <Button>CloseButton</Button>
+        </Box>
+      ) : null}
     </Draggable>
   );
 };
