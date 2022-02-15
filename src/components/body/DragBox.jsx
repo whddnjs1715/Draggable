@@ -15,7 +15,8 @@ const DraggableBox = () => {
   };
 
   const dragged = (e) => {
-    if (dragged) {
+    if (dragging === true) {
+      console.log("dragged");
       const left = e.screenX - diffX;
       const top = e.screenY - diffY;
 
@@ -49,7 +50,7 @@ const DraggableBox = () => {
           }}
         >
           <DragContent></DragContent>
-          <Button>CloseButton</Button>
+          <Button onClick={() => setModal(false)}>CloseButton</Button>
         </Box>
       ) : null}
     </Draggable>
